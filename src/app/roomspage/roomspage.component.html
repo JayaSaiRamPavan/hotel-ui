@@ -1,0 +1,129 @@
+<div class="container mt-5">
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem (click)="OnToday()">
+          <a ngbNavLink>Today</a>
+          <ng-template ngbNavContent>
+                <div class="card text-center" style="padding: 20px;">
+                    <h1 class="h1" *ngIf="rooms?.length > 0">Select any available Room in the Hotel</h1>
+                    <h1 class="h1" *ngIf="rooms?.length == 0">All rooms are reserved today on this hotel</h1>
+                    <h2 class="h2">Date :{{date}}</h2>
+                    <div class="content" style="margin: 20px;">
+                      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                        <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let room of rooms">
+                          <mat-card (click)="OnSelect(room.id)" class="mat-elevation-z8 zoom" >
+                            <mat-card-header>
+                              <mat-card-title>Room Number :{{room.number}}</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png">
+                            <mat-card-content>
+                              <p>
+                                
+                              </p>
+                            </mat-card-content>
+                            <!-- <mat-card-actions>
+                              <button mat-button>LIKE</button>
+                              <button mat-button>SHARE</button>
+                            </mat-card-actions> -->
+                          </mat-card>
+                        </div>
+                      </div>
+                  </div>
+                    <!-- <div *ngFor="let r of rooms">
+                        <button (click)="OnSelect(r.id)" class="btn btn-primary mb-2"> Room : {{r.number}}</button> 
+                    </div> -->
+                </div>
+          </ng-template>
+        </li>
+        <li ngbNavItem (click)="OnTomorrow()">
+          <a ngbNavLink>Tomorrow</a>
+          <ng-template ngbNavContent>
+                <div class="card text-center" style="padding: 20px;">
+                    <h1 *ngIf="rooms?.length > 0">Select any available Room in the Hotel</h1>
+                    <h1 *ngIf="rooms?.length == 0">All rooms are reserved tomorrow on this hotel</h1>
+                    <h2>Date :{{date}}</h2>
+                    <div class="content" style="margin: 20px;">
+                      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                        <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let room of rooms">
+                          <mat-card (click)="OnSelect(room.id)" class="mat-elevation-z8 zoom" >
+                            <mat-card-header>
+                              <mat-card-title>Room Number :{{room.number}}</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png">
+                            <mat-card-content>
+                              <p>
+                                
+                              </p>
+                            </mat-card-content>
+                            <!-- <mat-card-actions>
+                              <button mat-button>LIKE</button>
+                              <button mat-button>SHARE</button>
+                            </mat-card-actions> -->
+                          </mat-card>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+          </ng-template>
+        </li>
+        <li ngbNavItem (click)="doEmpty()">
+            <a ngbNavLink>Select Other date</a>
+            <ng-template ngbNavContent>
+                  <div class="card text-center" style="padding: 20px;">
+                    <h1>Choose any date</h1>
+                      <!-- <div>
+                        <input type="date"
+                            style="border-width:3px;  
+                            border-style:solid ;  border-color: black;" 
+                            [attr.min] = "today" 
+                            [attr.max] = "maxday"
+                            [(ngModel)] = "date"
+                        >
+                      </div> -->
+                      <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="picker" 
+                            [min] = "today" 
+                            [max] = "maxday"
+                            [(ngModel)] = "date">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                     </div>
+                     <p>Note: A reservation can only be made for the next 2 months</p>
+                      <h1 *ngIf="rooms?.length > 0">Select any available Room in the Hotel</h1>
+                      <h1 *ngIf="rooms?.length == 0">All rooms are reserved on the day on this hotel</h1>
+                      <h2>Date :{{date}}</h2>
+                      <div>
+                        <button class="btn btn-primary mb-2" (click)="OnSelectedDate()">Get rooms</button>
+                      </div>
+                      <div class="content" style="margin: 20px;">
+                        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                          <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let room of rooms">
+                            <mat-card (click)="OnSelect(room.id)" class="mat-elevation-z8 zoom" >
+                              <mat-card-header>
+                                <mat-card-title>Room Number :{{room.number}}</mat-card-title>
+                              </mat-card-header>
+                              <img mat-card-image src="https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png">
+                              <mat-card-content>
+                                <p>
+                                  
+                                </p>
+                              </mat-card-content>
+                              <!-- <mat-card-actions>
+                                <button mat-button>LIKE</button>
+                                <button mat-button>SHARE</button>
+                              </mat-card-actions> -->
+                            </mat-card>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+            </ng-template>
+          </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
+
+    
+ </div>

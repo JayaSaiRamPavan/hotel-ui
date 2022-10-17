@@ -1,0 +1,48 @@
+<div class="container mt-2">
+    <div class="card text-center" style="padding: 10px;">
+        <h1 class="h1">Welcome to our Hotel Website</h1>
+        <h2 class="h2">Choose any city for hotels</h2>
+    </div>
+ </div>
+<div class="content" style="margin: 20px;">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let city of cities">
+        <mat-card class="mat-elevation-z8 zoom" (click)="OnSelect(city.id)">
+          <mat-card-header>
+            <mat-card-title>{{city.name}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image [src]="city.image">
+          <mat-card-content>
+            <p>
+              
+            </p>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+    </div>
+</div>
+ <!-- <mat-toolbar color="primary">
+    <span>Card view demo</span>
+    <button mat-button (click)="toggleGridColumns()" fxHide.lt-md>
+      <span>HI</span>  
+      <span *ngIf="gridColumns === 4">Three Columns</span>
+      <span *ngIf="gridColumns === 3">Four Columns</span>
+    </button>
+</mat-toolbar> -->
+
+<!-- <button (mouseover)="showImage=true" (mouseout)="showImage=false">Come to see</button>
+        <h3 *ngIf="showImage">Hi</h3> -->
+
+<!-- <div class="container mt-5">
+    <div class="card text-center" style="padding: 20px;">
+        <h1>Welcome to our Hotel Website</h1>
+        <h2>Select The City</h2>
+        <button (click)="OnSelect(1)" class="btn btn-primary mb-2 mt-2">Hyderabad</button>
+        <button (click)="OnSelect(2)" class="btn btn-primary mb-2">Mumbai</button>
+        <button (click)="OnSelect(3)" class="btn btn-primary mb-2">Delhi</button>
+    </div>
+ </div> -->

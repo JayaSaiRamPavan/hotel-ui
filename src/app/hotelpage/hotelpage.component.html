@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="card text-center" style="padding: 20px;">
+        <h1 class="h1">Select A Hotel in the City</h1>
+        <div class="content" style="margin: 20px;">
+            <div fxLayout="row wrap" fxLayoutGap="16px grid">
+              <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let hotel of hotels">
+                <mat-card class="mat-elevation-z8 zoom" (click)="OnSelect(hotel.id)">
+                  <mat-card-header>
+                    <mat-card-title>Hotel Name :{{hotel.name}}</mat-card-title>
+                  </mat-card-header>
+                  <img mat-card-image src="http://www.surkhet.net/wp-content/uploads/2019/10/hotel-icon-5.png">
+                  <mat-card-content>
+                    <p>
+                      
+                    </p>
+                  </mat-card-content>
+                  <!-- <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions> -->
+                </mat-card>
+              </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+ 
+ 
+  
