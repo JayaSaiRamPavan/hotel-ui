@@ -12,12 +12,13 @@ export class RoomspageComponent implements OnInit {
   constructor(private httpclient: HttpClient,private router : Router) { }
 
   rooms : any;
-  hotelid : any;
+  hotel : any;
   date : string = "";
   today : string = "";
   maxday : string = "";
   ngOnInit(): void {
-    this.hotelid = localStorage.getItem('hotelid');
+    this.hotel = JSON.parse(localStorage.getItem('hotel') || '{}');
+    console.log(this.hotel);
     this.OnToday();
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -31,10 +32,15 @@ export class RoomspageComponent implements OnInit {
     this.maxday = yyyy + '-' + l_mm + '-' + dd;
   }
 
-  OnSelect(roomid : number){
+
+  OnTrigger(room : any){
+    console.log(room);
+  }
+
+  OnSelect(room : any){
     this.router.navigate(['/reservationspage']);
     localStorage.setItem('reservationDate', this.date);
-    localStorage.setItem('roomid', JSON.stringify(roomid));
+    localStorage.setItem('room', JSON.stringify(room));
   }
 
   OnToday(){
@@ -75,7 +81,7 @@ export class RoomspageComponent implements OnInit {
 
   getRooms(){
     //http://localhost:8080/hotel/1/date/2022-08-03/freerooms
-    this.httpclient.get(this.PATH_OF_API +'/hotel/'+ this.hotelid +'/date/'+this.date+'/freerooms').subscribe(
+    this.httpclient.get(this.PATH_OF_API +'/hotel/'+ this.hotel.id +'/date/'+this.date+'/freerooms').subscribe(
       (response :any) => {
         this.rooms = response;
         console.log("Rooms are");

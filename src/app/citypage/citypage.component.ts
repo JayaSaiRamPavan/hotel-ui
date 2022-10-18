@@ -13,9 +13,9 @@ export class CitypageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  OnSelect(cityid : number){
+  OnSelect(city : any){
     this.router.navigate(['/hotelspage']);
-    localStorage.setItem('cityid', JSON.stringify(cityid));
+    localStorage.setItem('city', JSON.stringify(city));
 
   }
   gridColumns = 3;

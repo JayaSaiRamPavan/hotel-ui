@@ -1,3 +1,4 @@
+import { UserReservationsPageComponent } from './user-reservations-page/user-reservations-page.component';
 import { HotelpageComponent } from './hotelpage/hotelpage.component';
 
 import { RoomspageComponent } from './roomspage/roomspage.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'citypage' , component : CitypageComponent},
   {path: 'hotelspage', component : HotelpageComponent},
   {path: 'roomspage', component : RoomspageComponent},
-  {path: 'reservationspage', component : ReservationpageComponent}
+  {path: 'reservationspage', component : ReservationpageComponent},
+  {path: 'myreservationspage', component : UserReservationsPageComponent}
 ];
 
 @NgModule({

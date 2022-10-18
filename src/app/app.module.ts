@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { UserReservationsPageComponent } from './user-reservations-page/user-reservations-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     HeaderComponent,
     HotelpageComponent,
     ReservationpageComponent,
-    RoomspageComponent
+    RoomspageComponent,
+    UserReservationsPageComponent
   ],
   imports: [
     BrowserModule,

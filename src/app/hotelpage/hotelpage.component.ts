@@ -12,10 +12,11 @@ export class HotelpageComponent implements OnInit {
   PATH_OF_API = 'http://localhost:8080';
 
   hotels : any;
-  cityid !: any;
+  city !: any;
   ngOnInit(): void {
-    this.cityid = localStorage.getItem('cityid');
-    this.httpclient.get(this.PATH_OF_API + '/cityid/'+ this.cityid +'/hotels').subscribe(
+    this.city = JSON.parse(localStorage.getItem('city') || '{}');
+    console.log(this.city);
+    this.httpclient.get(this.PATH_OF_API + '/cityid/'+ this.city.id +'/hotels').subscribe(
       (response :any) => {
         this.hotels = response;
         console.log("Hotels are");
@@ -27,9 +28,9 @@ export class HotelpageComponent implements OnInit {
     )
   }
 
-  OnSelect(hotelid : number){
+  OnSelect(hotel : any){
     this.router.navigate(['/roomspage']);
-    localStorage.setItem('hotelid', JSON.stringify(hotelid));
+    localStorage.setItem('hotel', JSON.stringify(hotel));
   }
 
 }

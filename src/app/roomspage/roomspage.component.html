@@ -4,13 +4,13 @@
           <a ngbNavLink>Today</a>
           <ng-template ngbNavContent>
                 <div class="card text-center" style="padding: 20px;">
-                    <h1 class="h1" *ngIf="rooms?.length > 0">Select any available Room in the Hotel</h1>
+                    <h1 class="h1" *ngIf="rooms?.length > 0">Select any available Room in the Hotel {{hotel.name}}</h1>
                     <h1 class="h1" *ngIf="rooms?.length == 0">All rooms are reserved today on this hotel</h1>
                     <h2 class="h2">Date :{{date}}</h2>
                     <div class="content" style="margin: 20px;">
                       <div fxLayout="row wrap" fxLayoutGap="16px grid">
                         <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let room of rooms">
-                          <mat-card (click)="OnSelect(room.id)" class="mat-elevation-z8 zoom" >
+                          <mat-card (click)="OnSelect(room)" class="mat-elevation-z8 zoom" >
                             <mat-card-header>
                               <mat-card-title>Room Number :{{room.number}}</mat-card-title>
                             </mat-card-header>
@@ -44,7 +44,7 @@
                     <div class="content" style="margin: 20px;">
                       <div fxLayout="row wrap" fxLayoutGap="16px grid">
                         <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let room of rooms">
-                          <mat-card (click)="OnSelect(room.id)" class="mat-elevation-z8 zoom" >
+                          <mat-card (click)="OnSelect(room)" class="mat-elevation-z8 zoom" >
                             <mat-card-header>
                               <mat-card-title>Room Number :{{room.number}}</mat-card-title>
                             </mat-card-header>
@@ -101,7 +101,7 @@
                       <div class="content" style="margin: 20px;">
                         <div fxLayout="row wrap" fxLayoutGap="16px grid">
                           <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let room of rooms">
-                            <mat-card (click)="OnSelect(room.id)" class="mat-elevation-z8 zoom" >
+                            <mat-card (click)="OnSelect(room)" class="mat-elevation-z8 zoom" >
                               <mat-card-header>
                                 <mat-card-title>Room Number :{{room.number}}</mat-card-title>
                               </mat-card-header>

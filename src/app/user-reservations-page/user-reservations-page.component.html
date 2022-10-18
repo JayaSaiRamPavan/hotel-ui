@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="card text-center" style="padding: 20px;">
+        <h1 class="h1" *ngIf="userReservations?.length > 0">Your reservations</h1>
+        <h1 class="h1" *ngIf="userReservations?.length == 0">You dont have any reservations</h1>
+        <div class="content" style="margin: 20px;">
+            <div fxLayout="row wrap" fxLayoutGap="16px grid">
+              <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let res of userReservations">
+                <mat-card class="mat-elevation-z8 zoom">
+                  <mat-card-header>
+                    <mat-card-title>
+                        <h2 class="h2">City: {{res.cityName}}</h2>
+                        <h2 class="h2">HotelName: {{res.hotelName}}</h2>
+                        <h2 class="h2">RoomNumber: {{res.roomNumber}}</h2>
+                        <h2 class="h2">Date :{{res.date}}</h2>
+                        <!-- <img mat-card-image style="width: 300px; height :300px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8D4rLSIfCG6MEJWMfVHqOOc_Wnmjry-6XGytsvw8Cj6kXX4DbkyDWEml8aJuD_hnp7YE&usqp=CAU"> -->
+                    </mat-card-title>
+                  </mat-card-header>
+                  
+                  <mat-card-content>
+                
+                    <p></p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button (click)="cancelReservation(res)" mat-raised-button color="warn">Cancel</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+ 
+ 
+  

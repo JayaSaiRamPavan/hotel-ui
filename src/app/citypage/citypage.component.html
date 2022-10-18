@@ -7,7 +7,7 @@
 <div class="content" style="margin: 20px;">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
       <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let city of cities">
-        <mat-card class="mat-elevation-z8 zoom" (click)="OnSelect(city.id)">
+        <mat-card class="mat-elevation-z8 zoom" (click)="OnSelect(city)">
           <mat-card-header>
             <mat-card-title>{{city.name}}</mat-card-title>
           </mat-card-header>

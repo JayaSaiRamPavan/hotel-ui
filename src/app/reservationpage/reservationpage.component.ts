@@ -11,14 +11,23 @@ import { Router } from '@angular/router';
 export class ReservationpageComponent implements OnInit {
   PATH_OF_API = 'http://localhost:8080';
   constructor( private http : HttpClient, private router : Router) { }
-  roomid !: number ;
+  room !: any ;
   userid !: number ;
-  cityid !:number;
+  city !: any;
+  hotel !: any;
   reservationDate : string = "";
   ngOnInit(): void {
     this.reservationDate = JSON.parse(JSON.stringify(localStorage.getItem('reservationDate')));
-    this.cityid =JSON.parse(JSON.stringify(localStorage.getItem('cityid')));
-    this.roomid = JSON.parse(JSON.stringify(localStorage.getItem('roomid')));
+    this.city = JSON.parse(localStorage.getItem('city') || '{}');
+    this.room = JSON.parse(localStorage.getItem('room') || '{}');
+    this.hotel = JSON.parse(localStorage.getItem('hotel') || '{}');
+    // console.log("Room is");
+    console.log(this.room);
+    // console.log(this.room.number);
+    
+    // console.log("And");
+    
+    
     this.userid = 1;
   }
   reservationDto !: ReservationDto ;
@@ -26,12 +35,13 @@ export class ReservationpageComponent implements OnInit {
     console.log(this.reservationDate);
     
     if(this.reservationDate){
-      this.reservationDto = new ReservationDto(this.userid,this.roomid, this.reservationDate);
+      this.reservationDto = new ReservationDto(this.userid,this.room.id, this.reservationDate);
       console.log(this.reservationDto);
       this.http.post(this.PATH_OF_API+'/reserveroom', this.reservationDto).subscribe(
         (response :any) => {
           alert("Room Reserved");
-          this.router.navigate(['/citypage']);
+
+          this.router.navigate(['/myreservationspage']);
         },
         (error) => {
           alert("Something went wrong try again \n" + error.error);

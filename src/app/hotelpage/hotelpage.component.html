@@ -1,10 +1,10 @@
 <div class="container mt-5">
     <div class="card text-center" style="padding: 20px;">
-        <h1 class="h1">Select A Hotel in the City</h1>
+        <h1 class="h1">Select A Hotel in the City {{city.name}}</h1>
         <div class="content" style="margin: 20px;">
             <div fxLayout="row wrap" fxLayoutGap="16px grid">
               <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let hotel of hotels">
-                <mat-card class="mat-elevation-z8 zoom" (click)="OnSelect(hotel.id)">
+                <mat-card class="mat-elevation-z8 zoom" (click)="OnSelect(hotel)">
                   <mat-card-header>
                     <mat-card-title>Hotel Name :{{hotel.name}}</mat-card-title>
                   </mat-card-header>
