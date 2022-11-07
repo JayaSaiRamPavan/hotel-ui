@@ -71,12 +71,12 @@ export class StaffPageComponent implements OnInit {
   }
 
   OnSelectedDate(){
-    var theDate = new Date(Date.parse(this.date));
-    const localDate = theDate.toLocaleString().split(" ");
-    var udate =localDate[0]
-    let str = udate.slice(0, -1);
-    var newdate = str.split("/").reverse().join("-");
-    this.date = newdate;
+    // var theDate = new Date(Date.parse(this.date));
+    // const localDate = theDate.toLocaleString().split(" ");
+    // var udate =localDate[0]
+    // let str = udate.slice(0, -1);
+    // var newdate = str.split("/").reverse().join("-");
+    // this.date = newdate;
     console.log(this.date);
     this.getReservations();
   }

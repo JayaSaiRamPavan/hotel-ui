@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public isStaff(){
-    console.log(this.userAuthService.isStaff());
     return this.userAuthService.isStaff();
   }
 
@@ -31,7 +30,6 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this.userAuthService.clear();
-    console.log(this.isLoggedIn());
     this.router.navigate(['/login']);
   }
 
