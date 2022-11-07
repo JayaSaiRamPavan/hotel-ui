@@ -20,6 +20,13 @@ export class HeaderComponent implements OnInit {
   public isLoggedIn() {
     return this.userAuthService.isLoggedIn();
   }
+
+  public isStaff(){
+    console.log(this.userAuthService.isStaff());
+    return this.userAuthService.isStaff();
+  }
+
+
   // navbarfixed:boolean = true;
 
   logout(){

@@ -6,13 +6,13 @@
       </button> -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li *ngIf="isLoggedIn() != 'null' " class="nav-item">
+          <li *ngIf="isLoggedIn() != 'null' && !isStaff() " class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/citypage">Home</a>
           </li>
-          <li *ngIf="isLoggedIn() != 'null' " class="nav-item">
+          <li *ngIf="isLoggedIn() != 'null' && !isStaff() " class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/myreservationspage">My Reservations</a>
           </li>
-          <li *ngIf="isLoggedIn() != 'null'" class="nav-item">
+          <li *ngIf="isStaff()" class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/staffpage">Staff Page</a>
           </li>
           <li *ngIf="isLoggedIn() == 'null'" class="nav-item">

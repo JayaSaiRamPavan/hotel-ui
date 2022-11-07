@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../_services/user-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   PATH_OF_API = 'http://localhost:8080';
   constructor(
     private http : HttpClient, 
-    private router: Router
+    private router: Router,
+    private userAuthService: UserAuthService,
   ) {}
 
   ngOnInit(): void {}
@@ -29,9 +31,14 @@ export class LoginComponent implements OnInit {
         console.log(response);
         alert("Login Successful");
         localStorage.setItem('user', JSON.stringify(response));
-        this.router.navigate(['/citypage']);
-        
 
+        if(this.userAuthService.isStaff()){
+          this.router.navigate(['/staffpage'])
+        }
+        else{
+          this.router.navigate(['/citypage']);
+        }
+        
       },
       (error) => {
         alert("Authentication Failed Check your Username and Password \n");
