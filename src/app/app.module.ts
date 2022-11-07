@@ -11,7 +11,7 @@ import { HotelpageComponent } from './hotelpage/hotelpage.component';
 import { ReservationpageComponent } from './reservationpage/reservationpage.component';
 import { RoomspageComponent } from './roomspage/roomspage.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +21,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UserReservationsPageComponent } from './user-reservations-page/user-reservations-page.component';
+import { StaffPageComponent } from './staff-page/staff-page.component';
+import {MatSelectModule} from '@angular/material/select';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,10 @@ import { UserReservationsPageComponent } from './user-reservations-page/user-res
     HotelpageComponent,
     ReservationpageComponent,
     RoomspageComponent,
-    UserReservationsPageComponent
+    UserReservationsPageComponent,
+    StaffPageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,9 @@ import { UserReservationsPageComponent } from './user-reservations-page/user-res
     MatInputModule,
     FlexLayoutModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

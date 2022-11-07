@@ -1,0 +1,27 @@
+.fixed {
+    position: fixed;
+    width: 100%;
+    transition: 0.2s linear;
+    top: 0px;
+    z-index:999;
+}
+
+.nofixed {
+    position: static;
+    transition: 0.2s linear;
+    top: -50px;
+}
+
+.header {
+    padding: 24px 0;
+    background-color: var(--dark-mode-elements); /* hsl(209, 23%, 22%);*/
+    position: fixed;
+    width: 100%;   
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 3px 4px 5px 10px var(--dark-mode-background);
+}

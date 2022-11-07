@@ -31,7 +31,9 @@
                     <!-- <div *ngFor="let r of rooms">
                         <button (click)="OnSelect(r.id)" class="btn btn-primary mb-2"> Room : {{r.number}}</button> 
                     </div> -->
+                    <div><button routerLink="/hotelspage" mat-raised-button color="primary">Back</button></div>
                 </div>
+                
           </ng-template>
         </li>
         <li ngbNavItem (click)="OnTomorrow()">
@@ -62,6 +64,7 @@
                         </div>
                       </div>
                   </div>
+                  <div><button routerLink="/hotelspage" mat-raised-button color="primary">Back</button></div>
                 </div>
           </ng-template>
         </li>
@@ -119,11 +122,12 @@
                           </div>
                         </div>
                     </div>
+                    <div><button routerLink="/hotelspage" mat-raised-button color="primary">Back</button></div>
                   </div>
             </ng-template>
           </li>
       </ul>
       <div [ngbNavOutlet]="nav"></div>
 
-    
+      
  </div>

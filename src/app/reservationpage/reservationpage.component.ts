@@ -12,10 +12,10 @@ export class ReservationpageComponent implements OnInit {
   PATH_OF_API = 'http://localhost:8080';
   constructor( private http : HttpClient, private router : Router) { }
   room !: any ;
-  userid !: number ;
   city !: any;
   hotel !: any;
   reservationDate : string = "";
+  user !: any;
   ngOnInit(): void {
     this.reservationDate = JSON.parse(JSON.stringify(localStorage.getItem('reservationDate')));
     this.city = JSON.parse(localStorage.getItem('city') || '{}');
@@ -27,15 +27,14 @@ export class ReservationpageComponent implements OnInit {
     
     // console.log("And");
     
-    
-    this.userid = 1;
+    this.user = JSON.parse(localStorage.getItem('user') || '{}');    
   }
   reservationDto !: ReservationDto ;
   OnSubmit(){
     console.log(this.reservationDate);
     
     if(this.reservationDate){
-      this.reservationDto = new ReservationDto(this.userid,this.room.id, this.reservationDate);
+      this.reservationDto = new ReservationDto(this.user.id,this.room.id, this.reservationDate);
       console.log(this.reservationDto);
       this.http.post(this.PATH_OF_API+'/reserveroom', this.reservationDto).subscribe(
         (response :any) => {

@@ -1,0 +1,79 @@
+<div class="container mt-2">
+  <div class="card text-center" style="padding: 10px;">
+    <div>
+      <p>Choose a city</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Select a City</mat-label>
+        <mat-select [(value)]="cityname">
+          <mat-option [value]="city.name" (click)="OnSelectCity(city)" *ngFor="let city of cities">{{city.name}}</mat-option>
+          <!-- <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option> -->
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <p>Choose a Hotel</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Select a Hotel</mat-label>
+        <mat-select [(value)]="hotelname">
+          <mat-option [value]="hotel.name" (click)="OnSelectHotel(hotel)" *ngFor="let hotel of hotels">{{hotel.name}}</mat-option>
+          <!-- <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option> -->
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <p>Choose a day</p>
+      <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" 
+          [min] = "today" 
+          [max] = "maxday"
+          [(ngModel)] = "date">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+   </div>
+   <div><button class=" mt-4" mat-raised-button color="primary" (click)=" OnSelectedDate()">Get Reservations</button></div>
+        <div class="container mt-2">
+          <div class="card text-center" style="padding: 10px;">
+            <div class="content" style="margin: 20px;">
+              <h1 class="h1" *ngIf="reservations?.length > 0">Reservations on the day</h1>
+              <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                <div [fxFlex]="(100/3) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let res of reservations">
+                  <mat-card class="mat-elevation-z8 zoom">
+                    <mat-card-header>
+                      <mat-card-title>
+                          <h2 class="h2">City: {{res.cityName}}</h2>
+                          <h2 class="h2">HotelName: {{res.hotelName}}</h2>
+                          <h2 class="h2">RoomNumber: {{res.roomNumber}}</h2>
+                          <h2 class="h2">Date :{{res.date}}</h2>
+                          <h2 class="h2">Checkin :{{res.checkinStatus}}</h2>
+                          <!-- <img mat-card-image style="width: 300px; height :300px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8D4rLSIfCG6MEJWMfVHqOOc_Wnmjry-6XGytsvw8Cj6kXX4DbkyDWEml8aJuD_hnp7YE&usqp=CAU"> -->
+                      </mat-card-title>
+                    </mat-card-header>
+                    
+                    <mat-card-content>
+                  
+                      <p></p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button (click)="doCheckIn(res)" mat-raised-button color="warn">Check In</button>
+                      <button (click)="doCheckOut(res)" mat-raised-button color="warn">Check Out</button>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+              </div>
+          </div>
+          </div>
+      </div>
+   
+  </div>
+</div>
+<div class="container mt-2">
+  <div class="card text-center" style="padding: 10px;">
+    <h1 class="h1" *ngIf="reservations?.length == 0">No reservations on the day</h1>
+  </div>
+</div>
+

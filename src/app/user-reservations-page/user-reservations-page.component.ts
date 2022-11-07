@@ -13,10 +13,15 @@ export class UserReservationsPageComponent implements OnInit {
 
   PATH_OF_API = 'http://localhost:8080';
   userReservations : any;
-  userid !: number;
+  user !: any;
   ngOnInit(): void {
-    this.userid = 1;
-    this.httpclient.get(this.PATH_OF_API + '/userid/'+ this.userid+'/reservations').subscribe(
+    this.user = JSON.parse(localStorage.getItem('user') || '{}');
+
+    this.getReservations();
+  }
+
+  getReservations(){      
+    this.httpclient.get(this.PATH_OF_API + '/userid/'+ this.user.id+'/reservations').subscribe(
       (response :any) => {
         this.userReservations = response;
         console.log("Reservations are");
@@ -26,7 +31,6 @@ export class UserReservationsPageComponent implements OnInit {
         console.log(error);
       }
     )
-
   }
 
   cancelReservation(res : any){
@@ -34,13 +38,16 @@ export class UserReservationsPageComponent implements OnInit {
       this.httpclient.post(this.PATH_OF_API + '/cancelReservation',res).subscribe(
         (response :any) => {
           console.log(response);
-          window.location.reload();
-          alert("Reservation Cancelled");
+          alert("Cancelled Succesfully");
+          this.getReservations();
+          // window.location.reload();
+          // alert("Reservation Cancelled");
         },
         (error) => {
           console.log(error);
-          window.location.reload();
-          alert("Reservation Cancelled");
+          this.getReservations();
+          // window.location.reload();
+          // alert("Reservation Cancelled");
         }
       )
   }
