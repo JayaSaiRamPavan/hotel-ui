@@ -1,5 +1,8 @@
-<div class="container mt-5">
-    <div class="card" style="padding: 20px;">
+<!-- <div class="container mt-5">
+    <div class="card text-center" style="padding: 10px;">
+        <h1 class="h1">Login to enter the app</h1>
+    </div>
+    <div class="card text-center" style="padding: 20px;">
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
             <input type="text"
             ngModel
@@ -22,4 +25,42 @@
             class="btn btn-outline-primary form-control rounded-0">
         </form>
     </div>
+</div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Login</h1>
+                    <h6>To enter the app</h6>
+                </div>
+                <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                    <label for="exampleInputEmail1" class="form-label">userName</label>
+                    <input type="text"
+                    ngModel
+                    name="userName"
+                    id="userName"
+                    placeholder="Enter your username"
+                    class="form-control mb-3"
+                    >
+        
+                    <label for="exampleInputEmail1" class="form-label">userPassword</label>
+                    <input type="password"
+                    ngModel
+                    name="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    class="form-control mb-3"
+                    >
+        
+                    <input type="submit"
+                    value="Login"
+                    class="btn btn-outline-primary form-control rounded-0">
+                </form>
+                
+                <a style="color: #fff; margin-top: 10px;" routerLink="/register">Not yet registered? Click to register</a>
+            </div>
+        </div>
+    </div>
 </div>
+

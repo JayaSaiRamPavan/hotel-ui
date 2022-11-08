@@ -25,6 +25,7 @@ import { StaffPageComponent } from './staff-page/staff-page.component';
 import {MatSelectModule} from '@angular/material/select';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     UserReservationsPageComponent,
     StaffPageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
     this.http.post(this.PATH_OF_API+'/verifyuser', loginForm.value).subscribe(
       (response :any) => {
         console.log(response);
-        alert("Login Successful");
         localStorage.setItem('user', JSON.stringify(response));
 
         if(this.userAuthService.isStaff()){
